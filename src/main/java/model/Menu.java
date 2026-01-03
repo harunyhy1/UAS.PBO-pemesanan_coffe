@@ -16,30 +16,39 @@ public class Menu {
     public int getId() {
         return id;
     }
+
     public void setId(int id) {
         this.id = id;
     }
+
     public String getNama() {
         return nama;
     }
+
     public void setNama(String nama) {
         this.nama = nama;
     }
+
     public int getHarga() {
         return harga;
     }
+
     public void setHarga(int harga) {
         this.harga = harga;
     }
+
     public String getKategori() {
         return kategori;
     }
+
     public void setKategori(String kategori) {
         this.kategori = kategori;
     }
+
     public String getGambar() {
         return gambar;
     }
+
     public void setGambar(String gambar) {
         this.gambar = gambar;
     }
@@ -48,5 +57,5 @@ public class Menu {
     public String toString() {
         return "Menu{" + "id=" + id + ", nama=" + nama + ", harga=" + harga + ", kategori=" + kategori + ", gambar=" + gambar + '}';
     }
-    
+
 }

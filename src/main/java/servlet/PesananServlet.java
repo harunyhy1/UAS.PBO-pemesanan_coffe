@@ -1,35 +1,45 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package servlet;
 
-import config.Koneksi;
+import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 
-    @WebServlet("/pesan")
+import config.Koneksi;
+
+@WebServlet("/pesanan")
 public class PesananServlet extends HttpServlet {
+
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse res)
-            throws IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
-        String nama = req.getParameter("nama");
-        int idMenu = Integer.parseInt(req.getParameter("id_menu"));
-        int jumlah = Integer.parseInt(req.getParameter("jumlah"));
+        String nama = request.getParameter("nama_pelanggan");
+        String telp = request.getParameter("no_telp");
+        String metode = request.getParameter("metode_pembayaran");
+        int total = Integer.parseInt(request.getParameter("total"));
 
-        try {
-            Connection c = Koneksi.getConnection();
-            // logic insert pesanan (disederhanakan)
+        try (Connection conn = Koneksi.getConnection()) {
+            String sql = "INSERT INTO pesanan "
+                    + "(nama_pelanggan, no_telp, metode_pembayaran, total) "
+                    + "VALUES (?, ?, ?, ?)";
+
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, nama);
+            ps.setString(2, telp);
+            ps.setString(3, metode);
+            ps.setInt(4, total);
+            ps.executeUpdate();
+
         } catch (Exception e) {
-            e.printStackTrace();
         }
 
-        res.sendRedirect("index.jsp");
+        // setelah checkout → ke dashboard
+        response.sendRedirect("index.jsp");
     }
 }
-

@@ -1,6 +1,0 @@
-config\Koneksi.class
-model\Menu.class
-servlet\PesananServlet.class
-dev\asahi\cafekopi\resources\JakartaEE11Resource.class
-dev\asahi\cafekopi\JakartaRestConfiguration.class
-servlet\MenuServlet.class

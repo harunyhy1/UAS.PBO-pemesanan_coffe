@@ -11,6 +11,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pesanan - Beans & Brew</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
     <style>
         * {
             margin: 0;
@@ -496,7 +497,7 @@
             <div class="modal-icon">✅</div>
             <h2>Pesanan Berhasil!</h2>
             <p>Terima kasih telah memesan di Beans & Brew. Pesanan Anda sedang diproses.</p>
-            <button class="modal-btn" onclick="backToMenu()">Kembali ke Menu</button>
+            <button type="button" onclick="konfirmasiPesanan(event)" class="checkout-btn">Checkout</button>
         </div>
     </div>
 
@@ -592,44 +593,50 @@
                     '</div>';
             }
 
-            container.innerHTML = 
-                '<div class="cart-container">' +
-                    '<div class="cart-items">' +
-                        cartItemsHTML +
+            // Ganti bagian checkout-section di dalam renderCart() menjadi seperti ini:
+
+        container.innerHTML = 
+            '<div class="cart-container">' +
+                '<div class="cart-items">' +
+                    cartItemsHTML +
+                '</div>' +
+                // AWAL FORM
+                '<form action="pesanan" method="post" class="checkout-section">' + 
+                    '<h2 class="checkout-title">Detail Pesanan</h2>' +
+
+                    '<div class="form-group">' +
+                        '<label>Nama Lengkap</label>' +
+                        '<input type="text" name="nama_pelanggan" placeholder="Nama" required>' +
                     '</div>' +
-                    '<div class="checkout-section">' +
-                        '<h2 class="checkout-title">Detail Pesanan</h2>' +
-                        '<div class="form-group">' +
-                            '<label for="customerName">Nama Lengkap</label>' +
-                            '<input type="text" id="customerName" placeholder="Masukkan nama Anda" required>' +
-                        '</div>' +
-                        '<div class="form-group">' +
-                            '<label for="customerPhone">No. Telepon</label>' +
-                            '<input type="tel" id="customerPhone" placeholder="08xxxxxxxxxx" required>' +
-                        '</div>' +
-                        '<div class="form-group">' +
-                            '<label for="paymentMethod">Metode Pembayaran</label>' +
-                            '<select id="paymentMethod">' +
-                                '<option value="cash">💵 Cash</option>' +
-                                '<option value="transfer">🏦 Transfer Bank</option>' +
-                                '<option value="gopay">📱 GoPay</option>' +
-                                '<option value="ovo">📱 OVO</option>' +
-                                '<option value="dana">📱 DANA</option>' +
-                            '</select>' +
-                        '</div>' +
-                        '<div class="order-summary">' +
-                            '<div class="summary-row">' +
-                                '<span>Jumlah Item:</span>' +
-                                '<span>' + totalItems + ' item</span>' +
-                            '</div>' +
-                            '<div class="summary-row total">' +
-                                '<span>Total:</span>' +
-                                '<span>Rp ' + total.toLocaleString('id-ID') + '</span>' +
-                            '</div>' +
-                        '</div>' +
-                        '<button class="checkout-btn" onclick="checkout()">Checkout Sekarang</button>' +
+
+                    '<div class="form-group">' +
+                        '<label>No. HP</label>' +
+                        '<input type="text" name="no_telp" placeholder="No HP" required>' +
                     '</div>' +
-                '</div>';
+
+                    '<div class="form-group">' +
+                        '<label>Metode Pembayaran</label>' +
+                        '<select name="metode_pembayaran" required>' +
+                            '<option value="">-- Pilih Metode --</option>' +
+                            '<option value="Cash">Cash</option>' +
+                            '<option value="QRIS">QRIS</option>' +
+                        '</select>' +
+                    '</div>' +
+
+            // Input hidden untuk total (otomatis terisi)
+            '<input type="hidden" name="total" id="hiddenTotal" value="' + total + '">' +
+
+            '<div class="order-summary">' +
+                '<div class="summary-row total">' +
+                    '<span>Total:</span>' +
+                    '<span>Rp ' + total.toLocaleString('id-ID') + '</span>' +
+                '</div>' +
+            '</div>' +
+            
+            '<button type="submit" class="checkout-btn">Checkout</button>' +
+        '</form>' +
+        // AKHIR FORM
+    '</div>';
         }
 
         function checkout() {
