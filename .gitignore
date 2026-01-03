@@ -1,5 +1,5 @@
 # Maven
-target/
+/target/
 
 # Logs
 *.log
@@ -8,6 +8,10 @@ target/
 .idea/
 .vscode/
 *.iml
+/nbproject/
+
+# Node (kalau ada frontend)
+/node_modules/
 
 # OS
 .DS_Store

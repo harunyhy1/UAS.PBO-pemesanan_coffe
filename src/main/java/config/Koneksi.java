@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
 package config;
 
 import java.sql.Connection;
@@ -11,16 +7,21 @@ import java.sql.SQLException;
 public class Koneksi {
 
     public static Connection getConnection() {
+        Connection conn = null;
+
         try {
             Class.forName("org.postgresql.Driver");
-            return DriverManager.getConnection(
-                    "jdbc:postgresql://localhost:5432/cafe_kopi",
-                    "postgres",
-                    "123"
-            );
-        } catch (ClassNotFoundException | SQLException e) {
-            return null;
-        }
-    }
 
+            String url = "jdbc:postgresql://localhost:5432/cafe_kopi";
+            String user = "postgres";
+            String password = "admin";
+
+            conn = DriverManager.getConnection(url, user, password);
+
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace(); // biar kelihatan error-nya
+        }
+
+        return conn;
+    }
 }
