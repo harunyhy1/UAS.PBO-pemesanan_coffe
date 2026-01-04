@@ -459,25 +459,42 @@
             <p>Dibalik setiap cangkir kopi yang sempurna, ada tim yang passionate dan berdedikasi</p>
             
             <div class="team-grid">
+               <div class="team-member">
+                   <div class="team-avatar">👨‍🍳</div>
+                   <h3>Andi Pratama</h3>
+                   <div class="team-role">Owner</div>
+                   <p>Pendiri Beans & Brew yang menghadirkan kopi berkualitas dengan suasana hangat dan nyaman.</p>
+               </div>
+                
+               <div class="team-member">
+                   <div class="team-avatar">👩‍💼</div>
+                   <h3>Rina Aulia</h3>
+                   <div class="team-role">Head Barista</div>
+                   <p>Meracik kopi pilihan dengan cita rasa terbaik dan konsisten di setiap sajian.</p>
+               </div>
+                
+                <div class="team-member">
+                    <div class="team-avatar">👨‍🍳</div>
+                    <h3>Dimas Saputra</h3>
+                    <div class="team-role">Kitchen Staff</div>
+                    <p>Bertanggung jawab menyiapkan menu makanan pendamping kopi dengan rasa terbaik.</p>
+                </div>
+                
+                <div class="team-member">
+                    <div class="team-avatar">👩‍💼</div>
+                    <h3>Siti Rahma</h3>
+                    <div class="team-role">Cashier</div>
+                    <p>Melayani transaksi pelanggan dengan ramah dan memastikan pesanan berjalan lancar.</p>
+                </div>
+                
                 <div class="team-member">
                     <div class="team-avatar">👨‍💼</div>
-                    <h3>Arif Wijaya</h3>
-                    <div class="team-role">Founder & CEO</div>
-                    <p>Pencinta kopi yang bermimpi membawa pengalaman kopi terbaik ke Indonesia</p>
-                </div>
-                <div class="team-member">
-                    <div class="team-avatar">👩‍🍳</div>
-                    <h3>Sarah Lestari</h3>
-                    <div class="team-role">Head Barista</div>
-                    <p>Ahli dalam seni meracik kopi dengan pengalaman internasional</p>
-                </div>
-                <div class="team-member">
-                    <div class="team-avatar">👨‍🔬</div>
-                    <h3>Budi Santoso</h3>
-                    <div class="team-role">Coffee Sourcing Manager</div>
-                    <p>Memastikan setiap biji kopi yang kami gunakan adalah yang terbaik</p>
+                    <h3>Fajar Nugroho</h3>
+                    <div class="team-role">Service Crew</div>
+                    <p>Memberikan pelayanan terbaik agar setiap pelanggan merasa nyaman dan puas.</p>
                 </div>
             </div>
+
         </div>
 
         <!-- Contact Info -->

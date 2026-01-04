@@ -16,7 +16,7 @@ public class Koneksi {
             return DriverManager.getConnection(
                     "jdbc:postgresql://localhost:5432/cafe_kopi",
                     "postgres",
-                    "admin"
+                    "123"
             );
         } catch (ClassNotFoundException | SQLException e) {
             return null;
